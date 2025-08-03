@@ -1,0 +1,11 @@
+.DS_Store
+logs/
+*.png
+__pycache__
+.idea
+*.pkl
+*.pt
+*.pth
+.ruff_cache
+nnkcde
+dataset
