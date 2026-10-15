@@ -25,6 +25,7 @@ def m3(size: int):
     y = np.random.randn(size, 50)
     std = 0.1 * np.sum(y[:, 0::5] * y[:, 1::5] * np.cos(2 * y[:, 2::5] * y[:, 3::5] + y[:, 4::5]), axis=1,
                      keepdims=True) + 1
+    std = np.abs(std)
     mean = 0.1 * np.sum((y[:, 0::5] + y[:, 1::5] - 1)**2 + y[:, 2::5] * np.sin(y[:, 3::5] + 3 * y[:, 4::5]), axis=1, keepdims=True)
     x = mean + std * np.random.randn(size, 1)
     return dict(y=y, x=x, mean=mean, std=std)

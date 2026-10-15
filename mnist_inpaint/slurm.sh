@@ -27,9 +27,10 @@ python fid.py
 
 for p1 in 1 2 3; do
 	for p2 in gan vae vesde trig follmer; do
-	python fid.py --mode gen --ckpt "logs/$p2-mask$p1-n60000/samples.npy"
-	python fid.py --mode fid --ckpt "logs/$p2-mask$p1-n60000/samples.npy"
-	python plot.py --mode $p2 --mask_mode $p2 --ckpt "logs/$p2-mask$p1-n60000/network-snapshot-000010K.pt"
+		python fid.py --mode gen --ckpt "logs/$p2-mask$p1-n60000/samples.npy"
+		python fid.py --mode fid --ckpt "logs/$p2-mask$p1-n60000/samples.npy"
+		python plot.py --mode $p2 --mask_mode $p1 --ckpt "logs/$p2-mask$p1-n60000/network-snapshot-000010K.pt"
+	done
 done
 
 
@@ -40,7 +41,7 @@ done
 cd logs
 for p1 in 1 2 3; do
 	for p2 in 0.999 0.9995 0.9999; do
-	    cp -r follmer-maske$p1-n60000 follmer-mask$p1-n60000-T$p2
+	    cp -r follmer-mask$p1-n60000 follmer-mask$p1-n60000-T$p2
 	done
 done
 
@@ -49,7 +50,7 @@ done
 cd ..
 for p1 in 1 2 3; do
 	for p3 in 0.999 0.9995 0.9999; do
-		python test.py --mode follmer --T $p3 --ckpt "logs/follmer-mask$p1-n60000-T$p3/network-snapshot-000010K.pt"
+		python test.py --mode follmer --mask_mode $p1 --T $p3 --ckpt "logs/follmer-mask$p1-n60000-T$p3/network-snapshot-000010K.pt"
 		python fid.py --mode gen --ckpt "logs/follmer-mask$p1-n60000-T$p3/samples.npy"
 		python fid.py --mode fid --ckpt "logs/follmer-mask$p1-n60000-T$p3/samples.npy"
 	done

@@ -34,9 +34,11 @@ done;
 # compute metrics
 
 cd ..
-for p3 in 0.999 0.9995 0.9999; do
-    python test.py --mode follmer --T $p3 --ckpt "logs/wine-n5847-follmer-T$p3/network-snapshot-000006K.pt" 
-done; 
+for p2 in 0.1 0.05 0.01; do
+	for p3 in 0.999 0.9995 0.9999; do
+		python test.py --mode follmer --alpha $p2 --T $p3 --ckpt "logs/wine-n5847-follmer-T$p3/network-snapshot-000006K.pt" 
+	done; 
+done
 
 # reproduce Table 3, Table T5
 

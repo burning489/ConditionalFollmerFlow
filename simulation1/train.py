@@ -7,6 +7,7 @@ import torch
 from torch.utils.data import DataLoader
 from torch.utils.data import TensorDataset
 
+from diffusion import Follmer, Linear, VESDE, Trigonometric
 from misc import add_dict_to_argparser, default_logger, create_infinite_dataloader
 from network import MLP, VAE, GAN
 
@@ -21,7 +22,7 @@ def create_parser():
         sigma_min=0.1, sigma_max=100, # VE SDE specific
         latent_dim=32,  # VAE & GAN
         n_critic=1, gp_weight=0.1, # GAN specific
-        bsz=2000, train_steps=10000, lr=1e-3,  # training
+        bsz=2000, train_steps=20000, lr=1e-3,  # training
         snapshot_freq=1000, log_freq=500,  # logging
     )
     add_dict_to_argparser(parser, defaults)
