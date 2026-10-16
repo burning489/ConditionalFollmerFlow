@@ -12,7 +12,7 @@ done
 
 for p1 in m1 m2 m3; do
 	for p2 in gan vae vesde trig; do
-		python train.py --mode $p2 --data dataset/$p1.pkl
+		python train.py --mode $p2 --data dataset/$p1.pkl --n_train 10000
 		python test.py --mode $p2 --T 0.95 --data dataset/$p1.pkl --ckpt "logs/$p1-n10000-$p2/network-snapshot-000003K.pt"
 	done
 	python train.py --mode follmer --data dataset/$p1.pkl
