@@ -7,8 +7,8 @@ All the results in our manuscript can be reproduced with the `slurm.sh` in each 
 ### Dependencies
 
 - `pip install -r requirements` 
-- 
 - You need to manual install `nnkcde` from `https://github.com/lee-group-cmu/NNKCDE` as its authors do not offer an official installation through `PyPi` or `conda`.
+- Pretrained checkpoints to reproduce results from the manuscript are available on [Google Drive](https://drive.google.com/drive/folders/1hNUmpWBU6x8y9gn-5NuHcHbWy5Wlhg4N?usp=drive_link)
 
 ### Hardware specification
 
